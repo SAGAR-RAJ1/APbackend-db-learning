@@ -41,8 +41,11 @@
    <% for(let chat of chats ){%>
      
 <div class="chatc">
+    
     <p> From : <%= chat.from %></p>
-    <p class="msg"> Message : <%= chat.msg %></p>
+    <p class="msg"> Message : <%= chat.msg %> </p><form method="get" action="/chats/<%= chat._id %>/edit" style="margin-top: 3px; margin-left: 4px; position: relative;">
+        <button >Edit</button>
+    </form>
     <p> Receved by : <%= chat.to %></p>
     <hr>
     <p> Created </p>
