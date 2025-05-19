@@ -45,6 +45,8 @@
     <p class="msg"> Message : <%= chat.msg %></p>
     <p> Receved by : <%= chat.to %></p>
     <hr>
+    <p> Created </p>
+    <p>Time : <%= chat.created_at.toString().split(" ")[4] %>    Date :  <%= chat.created_at.toString().split(" ").slice(0,4).join(" ") %></p>
 </div>
 
 
