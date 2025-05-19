@@ -33,10 +33,45 @@ app.set("views",path.join(__dirname, "views"));
 // chat1.save().then((res)=>{console.log(res);})
 
 
-
-
-
-app.get('/', function(req, res) {
-    res.send("welcome");
+//? Home Route
+app.get('/', (req, res)=> {
+   res.send("Server is Working!!!!")
 });
+
+
+//? Index Route
+
+app.get('/chats', async(req, res)=> {
+  let chats = await chat.find();
+  console.log(chats);
+    res.render("index.ejs",{chats});
+});
+//? New chat route
+
+app.get('/chats/new', (req, res)=> {
+  res.render("new.ejs")
+});
+
+//? create route
+app.post('/chats', (req, res)=> {
+  let {from , to , msg}=req.body;
+  let newchat = new chat({
+    from:from,
+    to:to,
+    msg:msg,
+    created_at:new Date()
+  })
+ newchat
+ .save()
+ .then(()=>{
+  console.log("Added to database");
+ })
+ .catch((err)=>{
+  console.log(err);
+ });
+
+ res.redirect("/chats")
+
+});
+
 app.listen(3000);

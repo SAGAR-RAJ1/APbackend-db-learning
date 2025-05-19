@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Chats App</title>
+</head>
+<style>
+    .chatc{
+        background-color: aquamarine;
+        padding: 3px; margin-bottom: 1px;
+        border-radius: 10px;
+
+    }
+    .body{
+        background-color: azure;
+        margin-left: 20px;
+       
+    }
+    p{
+        margin-left: 10px;
+    }
+    .msg{
+        background-color: antiquewhite;
+        padding: 10px;border-radius: 15px;
+        margin-left: 30px;
+        display: inline-block;
+    }
+    button{
+        margin-bottom: 5px;
+        padding: 3px;
+    }
+</style>
+<body>
+    <h1>All Chats Here</h1>
+
+    <form method="get" action="/chats/new">
+        <button>New Chat</button>
+    </form>
+
+   <% for(let chat of chats ){%>
+     
+<div class="chatc">
+    <p> From : <%= chat.from %></p>
+    <p class="msg"> Message : <%= chat.msg %></p>
+    <p> Receved by : <%= chat.to %></p>
+    <hr>
+</div>
+
+
+  <%   }%> 
+    
+</body>
+</html>
