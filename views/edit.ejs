@@ -10,10 +10,11 @@
     <br>
     <p>This chat was sent from <b><%= editchat.from %></b> to <b> <%= editchat.to %></b></p>
 
-    <form method="post" action="/chats/<%= editchat._id %>">
+    <form method="post" action="/chats/<%= editchat._id %>?_method=PUT">
         <p>Write your new Message here : </p>
         <br><br>
-        <textarea name="msg" placeholder="Old Msg : <%= editchat.msg  %>" id=""  ></textarea>
+        <textarea name="msg" placeholder="Old Msg : <%= editchat.msg  %>" id=""   ></textarea>
+        <button>Update</button>
     </form>
     
 </body>
