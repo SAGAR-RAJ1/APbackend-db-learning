@@ -46,6 +46,9 @@
     <p class="msg"> Message : <%= chat.msg %> </p><form method="get" action="/chats/<%= chat._id %>/edit" style="margin-top: 3px; margin-left: 4px; position: relative;">
         <button >Edit</button>
     </form>
+    <form method="post" action="/chats/<%= chat._id %>?_method=DELETE" style="margin-top: 3px; margin-left: 4px; position: relative; ">
+        <button >Delete</button>
+    </form>
     <p> Receved by : <%= chat.to %></p>
     <hr>
     <p> Created </p>
